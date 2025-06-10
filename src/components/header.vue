@@ -7,7 +7,7 @@
 					<span class="title">启航星文化传媒工作室</span>
 				</div>
 			</el-col>
-			<el-row :span="18">
+			<el-col :span="18">
 				<div class="menu">
 					<span>大型文演</span>
 					<span>公司纪录片</span>
@@ -15,7 +15,7 @@
 					<span>线下展览</span>
 					<span>联系我们</span>
 				</div>
-			</el-row>
+			</el-col>
 		</el-row>
 	</el-header>
 </template>
@@ -27,18 +27,24 @@ const activeIndex=ref(1);
 </script>
 
 <style lang="scss" scoped>
+@use "/public/css/comm.scss" as comm;
 	.header {
 		width: 100%;
-		height: 30px;
+		height: comm.$header_height;
 
 		.row {
-			width: 1200px;
+			width: comm.$auto_width;
 			margin: 0px auto;
-			height:30px;
+			height:comm.$header_height;
 		}
 		.menu{
+			width:60%;
+			margin-left:40%;
 			display: flex;
 			justify-self: center;
+			height: comm.$header_height;
+			line-height:comm.$header_height;
+			text-align:center;
 		}
 		.menu>span{
 			flex:1;
