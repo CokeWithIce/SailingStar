@@ -3,10 +3,19 @@ import {
 	createWebHistory
 } from 'vue-router';
 import indexVue from '../pages/index.vue';
+import largeEvent from "../pages/largeEvent.vue";
 const routes = [{
 		path: '/',
-		name: 'Home',
+		name: '首页',
+		meta:{
+			title:"首页"
+		},
 		component: indexVue
+	},
+	{
+		path:'/largeEvent',
+		name:"活动",
+		component:largeEvent
 	},
 	{
 		path: "/:pathMath(.*)*",

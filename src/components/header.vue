@@ -3,9 +3,9 @@
 	<el-header class="header" v-show="showHeader">
 		<el-row class="row">
 			<el-col :span="24">
-				<el-menu :default-active="activeIndex" text-color="rgb(64, 158, 255)" background-color="rgba(255,255,255,.0)" :ellipsis="false" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-					<el-menu-item >
-						<div class="container">
+				<el-menu style="border:none" :default-active="activeIndex" text-color="rgb(64, 158, 255)" background-color="rgba(255,255,255,.0)" :ellipsis="false" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+					<el-menu-item style="background:none;" >
+						<div class="container"  @click.stop="home();">
 							<img src="/public/logo.png" height="50"/>
 							<span class="title">启航星文化传媒工作室</span>
 						</div>
@@ -29,22 +29,26 @@
 
 <script setup>
 import { ElContainer } from 'element-plus';
+import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 const props=defineProps({
 	
 })
+const router =useRouter();
 const showHeader=ref(true);
 const activeIndex = ref(0);
 function handleSelect(i){
-	switch(activeIndex){
-		case 1:
-			// this.$route.push()
+	activeIndex.value=i;
+	debugger;
+	switch(activeIndex.value){
+		case '1':
+			router.push('/largeEvent');
 			break;
-		case 2:
+		case '2':
 			break;
-		case 3:
+		case '3':
 			break;
-		case 4:
+		case '4':
 			break;
 		default:
 			break;
@@ -52,6 +56,10 @@ function handleSelect(i){
 }
 function showHeaderF(){
 	showHeader.value=!showHeader.value;
+}
+function home(){
+	activeIndex.value=0;
+	router.push('/');
 }
 </script>
 
@@ -66,11 +74,12 @@ function showHeaderF(){
 		height: 50px;
 	}
 	transition: all 1s;
-	background:rgba(255,255,255,.7);
+	background:rgba(0,0,0,.7);
 	position: fixed;
 	top:0px;
 	left:0px;
 	right:0px;
+	z-index: 10000;
 	border-bottom:3px solid comm.$primary_color;
 	.row {
 		width: comm.$auto_width;
@@ -95,7 +104,8 @@ function showHeaderF(){
 	right:10vw;
 	padding:2px;
 	border-radius: 2px;
-	background:rgba(255,255,255,.7)
+	background:rgba(255,255,255,.7);
+	z-index: 10000;
 }
 .container {
 	display: flex;

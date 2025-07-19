@@ -3,8 +3,10 @@
     <div class="container">
       <video ref="videoRef" class="video" autoplay muted loop :src="videoSrc" controls :poster="posterImage"
         @timeupdate="updateProgress" @loadedmetadata="updateDuration"></video>
-      <div ref="showDiv" class="showDiv" @click="toggleShowContent()">
-        <div class="textContent" v-show="showContent">
+      <div ref="showDiv" class="showDiv" @click.stop="toggleShowContent()">
+        
+      </div>
+      <div class="textContent" v-show="showContent">
           <h1>启航星视频</h1>
           <div>
             <p>光影交织的创意海洋中，启航星文化传媒工作室闪耀着独特光芒。我们专注于用镜头捕捉美好，以创意雕琢视觉盛宴。​</p>
@@ -13,10 +15,9 @@
             <p>在照片拍摄领域，无论是商业大片、个人写真，还是活动跟拍，我们都能巧妙运用光线与构图，定格最动人的画面。</p>
             <p>而平面设计方面，我们以创意为笔，用色彩和图形为客户打造极具吸引力的视觉形象，从海报、宣传册到品牌视觉识别系统，每一项设计都独具匠心，助力客户在市场中脱颖而出。</p>
             <p>启航星文化传媒工作室，期待为您开启视觉艺术新征程 。</p>
-            </div>
+          </div>
           <el-button class="btn"  type="primary" size="large" @click.stop="toggleShowContent()">隐藏此层</el-button>
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -65,8 +66,9 @@ function startCapture() {
     ctx.drawImage(videoRef.value, 0, 0, canvas.width, canvas.height);
     const iu = canvas.toDataURL('image/jpeg');
     showDiv.value.style.backgroundImage = `url(${iu})`;
-  }, 25)
+  }, 15)
 }
+//方法是显示遮罩层页面
 function toggleShowContent(){
   debugger;
   showContent.value=!showContent.value;
@@ -94,26 +96,18 @@ onUnmounted(() => {
 @use "/public/css/comm.scss" as comm;
 
 .wrapper {
+  box-sizing: border-box;
   width: 100%;
-  background: linear-gradient(to right,
-      black 0%,
-      /* 左侧全黑 */
-      comm.$gray_color 20%,
-      /* 渐变为深灰 */
-      #fff 50%,
-      /* 中间主题色 */
-      comm.$gray_color 80%,
-      /* 渐变为深灰 */
-      black 100%
-      /* 右侧全黑 */
-    );
-
+  height:100dvh;
+  min-width:1280px;
   .container {
     // width: comm.$auto_width;
     width:100%;
-    min-width:1280px;
+    
     margin: 0px auto;
-
+    padding:0px;
+    border:none;
+    overflow:hidden;
     .video {
       width: 1px;
       height: 1px;
@@ -125,26 +119,29 @@ onUnmounted(() => {
     .showDiv {
       background-repeat: no-repeat;
       background-position: center;
-      min-width:1280px;
-      // height: calc(100vw * 3 / 4);
-      min-height: 900px;
+      width:100vw;
+      height:100vh;
       transition: background-image 0.05s linear;
-      background-size: 100% 100%;
+      background-size:cover;
       padding: 1px;
-
-      .textContent {
-        width: comm.$auto_width;
-        margin:100px auto 0px;
-        height: 500px;
-        border: 1px solid rgba(180, 180, 180, .8);
-        background: rgba(255, 255, 255, .8);
-        border-radius: 20px;
-        padding: 50px;
-
+    }
+    .textContent {
+        position:fixed;
+        top:0px;
+        padding-top:100px;
+        right:0px;
+        left:0px;
+        bottom:0px;
+        background: rgba(0, 0, 0, .7);
+        *{
+          width: comm.$auto_width;
+          margin:20px auto;
+        }
         h1 {
           margin-top: 15px;
           color: comm.$primary_color;
           font-size:40px;
+          text-align:center;
         }
 
         div {
@@ -158,10 +155,10 @@ onUnmounted(() => {
 
         .btn {
           font-size: 20px;
+          display: block;
+          margin:20px auto;
         }
       }
-
-    }
   }
 }
 </style>

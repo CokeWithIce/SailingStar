@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container100">
 	<header>
 		
 	</header>
@@ -15,4 +15,7 @@ import swiper from '../components/swiper.vue';
 </script>
 
 <style lang="scss" scoped>
+@use "/public/css/comm.scss" as comm;
+@import url("/public/css/comm.css");
+
 </style>
