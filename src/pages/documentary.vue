@@ -5,9 +5,9 @@
         </div>
         <div class="content">
             <div class="text">
-                <p>我们专注工会及企业内部演出，以 “凝聚共识” 为核心，提供定制服务。​</p>
-                <p>涵盖企业年会、工会表彰、中老年文艺汇演及体制内报告演出等。企业年会上，业内知名人士分享结合员工才艺，强化团队感；工会活动中，劳模事迹艺术化呈现，传递正能量。针对中老年群体，编排贴合其审美的合唱、戏曲联演；报告演出则注重流程庄重性与内容清晰传递。​</p>
-                <p>执行上，善用企业礼堂等场地，轻量化舞美兼顾品质与成本。高效调度保障各类活动顺畅，让每一场相聚都有意义。</p>
+               <p>在时光的长河里，启航星文化传媒用镜头打捞那些值得被铭记的故事。</p>
+               <p>我们深耕纪录片领域，执着于挖掘故事内核，以细腻镜头语言，展现生活百态里的感动，记录世间万象中的深意。</p>
+               <p>从人物传奇到时代印记，让每一段真实都在光影中永恒绽放，用影像镌刻时光的温度与力量。</p>
             </div>
             <div class="video">
                 <div v-for="item in videoList" key="index">
@@ -22,7 +22,6 @@
 </template>
 <script setup>
 import {ref, reactive } from 'vue';
-const posterImage = ref('https://picsum.photos/800/450?random=1');
 const videoList=reactive([
     {
         path:"/public/mp4/bigmall.mp4",
@@ -40,7 +39,7 @@ const videoList=reactive([
 .endPic {
     width: 100vw;
     height: 100vh;
-    background-image: url("/public/images/bg_tianjinzhiyan.jpg");
+    background-image: url("/public/images/bg_shijizhong.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     .mask{

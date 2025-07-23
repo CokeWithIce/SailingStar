@@ -3,11 +3,11 @@
         <div class="endPic">
             <div class="mask"></div>
         </div>
-        <div class="content">
+        <div class="content">-
             <div class="text">
-                <p>我们专注工会及企业内部演出，以 “凝聚共识” 为核心，提供定制服务。​</p>
-                <p>涵盖企业年会、工会表彰、中老年文艺汇演及体制内报告演出等。企业年会上，业内知名人士分享结合员工才艺，强化团队感；工会活动中，劳模事迹艺术化呈现，传递正能量。针对中老年群体，编排贴合其审美的合唱、戏曲联演；报告演出则注重流程庄重性与内容清晰传递。​</p>
-                <p>执行上，善用企业礼堂等场地，轻量化舞美兼顾品质与成本。高效调度保障各类活动顺畅，让每一场相聚都有意义。</p>
+               <p>我们以光影为墨，构图为框，在照片写真领域雕琢每一份独特。</p>
+               <p>无论是商业大片的张力、个人写真的灵动，还是活动瞬间的鲜活，都能精准捕捉。</p>
+               <p>用光线勾勒轮廓，用构图定格情绪，让每一张照片都成为时光里的永恒注脚，藏着未曾言说的心动与故事。​</p>
             </div>
             <div class="video">
                 <div v-for="item in videoList" key="index">
@@ -22,7 +22,6 @@
 </template>
 <script setup>
 import {ref, reactive } from 'vue';
-const posterImage = ref('https://picsum.photos/800/450?random=1');
 const videoList=reactive([
     {
         path:"/public/mp4/bigmall.mp4",
@@ -40,7 +39,7 @@ const videoList=reactive([
 .endPic {
     width: 100vw;
     height: 100vh;
-    background-image: url("/public/images/bg_tianjinzhiyan.jpg");
+    background-image: url("/public/images/bg_cifangzi.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     .mask{

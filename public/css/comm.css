@@ -4,4 +4,6 @@
     box-sizing: border-box;
     overflow: hidden;
     min-width:1280px;
+    padding:0px;
+    margin:0px;
 }

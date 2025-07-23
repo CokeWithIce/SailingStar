@@ -12,11 +12,12 @@
 					</el-menu-item>
 					
 					<el-menu-item index="1">大型文演</el-menu-item>
-					<el-menu-item index="2">文艺设计</el-menu-item>
-
-					<el-menu-item index="3">线下展览</el-menu-item>
-					<el-menu-item index="4">联系我们</el-menu-item>
-					<el-menu-item @click="showHeaderF()">隐藏导航</el-menu-item>
+					<el-menu-item index="2">纪录片</el-menu-item>
+					<el-menu-item index="3">照片写真</el-menu-item>
+					<el-menu-item index="4">线下展览</el-menu-item>
+					<el-menu-item index="5">市场营销</el-menu-item>
+					<el-menu-item index="6">联系我们</el-menu-item>
+					<el-menu-item v-if="activeIndex==0" @click="showHeaderF()">隐藏导航</el-menu-item>
 				</el-menu>
 			</el-col>
 		</el-row>
@@ -39,18 +40,28 @@ const showHeader=ref(true);
 const activeIndex = ref(0);
 function handleSelect(i){
 	activeIndex.value=i;
-	debugger;
 	switch(activeIndex.value){
 		case '1':
 			router.push('/largeEvent');
 			break;
 		case '2':
+			router.push('/documentary');
 			break;
 		case '3':
+			router.push('/photo')
 			break;
 		case '4':
+			router.push('/offlineExhibition')
+			break;
+		case '5':
+			router.push('/marketing')
+			break;
+		case '6':
+			router.push('/contactUs')
 			break;
 		default:
+			this.$alert('出错了！请联系管理员');
+			router.push('/');
 			break;
 	}
 }

@@ -1,8 +1,5 @@
 <template>
 	<div class="container100">
-	<header>
-		
-	</header>
 	<swiper>
 		
 	</swiper>
