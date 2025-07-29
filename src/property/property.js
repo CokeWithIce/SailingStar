@@ -1,0 +1,47 @@
+export const property={
+    defaultImages:[
+        {
+            path:'/src/images/DSCN0885.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN0903.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN0921.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN0948.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN0965.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN0982.jpg',
+            name:'缺省图片'
+        },
+        {
+            path:'/src/images/DSCN0999.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN1016.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN1033.jpg',
+            name:'缺省图片'
+        },
+         {
+            path:'/src/images/DSCN1052.jpg',
+            name:'缺省图片'
+        }
+    ],
+    bgImages:[
+
+    ],
+}

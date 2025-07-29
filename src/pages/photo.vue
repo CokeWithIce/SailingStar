@@ -11,26 +11,38 @@
             </div>
             <div class="video">
                 <div v-for="item in videoList" key="index">
-                    <video :ref="'videoRef'+index"  class="video" muted loop :src="item.path" controls></video>
+                    <div class="image" :style="{backgroundImage:`url(${item.path})`}" @click="largeImage(item)">
+                        <p>{{item.name}}</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <el-dialog :title="currentName" v-model="bigPic" width="1200">
+                <img :src="currentImage" style="width:100%;"/>
+        </el-dialog>
     </div>
-    <el-dialog ref="movie">
 
-    </el-dialog>
 </template>
 <script setup>
 import {ref, reactive } from 'vue';
-const videoList=reactive([
-    {
-        path:"/public/mp4/bigmall.mp4",
-        name:'演示视频一',
-    },{
-        path:"/public/mp4/testVideo.mp4",
-        name:'演示视频二',
-    },
-]);
+import {property} from"/src/property/property.js";
+// 遮罩层开关
+const bigPic=ref(false);
+// 遮罩层背景图片
+const currentImage=ref("");
+// 遮罩层图片名称
+const currentName=ref("");
+// 当前页面所有展示元素集合
+const videoList=reactive(property.defaultImages.map((i)=>{
+    i.name=i.path.split("\/").slice(-1)[0].replace(".jpg","");
+    return i;
+}));
+// 点击打开大图片。
+function largeImage(obj){
+    bigPic.value=true;
+    currentImage.value=obj.path;
+    currentName.value=obj.name;
+}
 </script>
 <style lang="scss" scoped>
 @use "/public/css/comm.scss" as comm;
@@ -90,12 +102,34 @@ const videoList=reactive([
         padding:50px 20px;
         box-sizing: border-box;
         height: 80vh;
-        video{
+        >div{
             width:100%;
             height:150px;
             box-sizing: border-box;
             padding:0px;
             margin:0px;
+            .image{
+                width:100%;
+                height:150px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position:relative;
+                cursor: pointer;
+                p{
+                    position:absolute;
+                    bottom:0px;
+                    right:0px;
+                    left:0px;
+                    height:30px;
+                    line-height: 30px;
+                    background:rgba(0,0,0,.7);
+                    color:comm.$primary_color;
+                    margin:0px;
+                    padding:0px;
+                    text-align: center;
+                }
+            }
+            
         }
     }
 }

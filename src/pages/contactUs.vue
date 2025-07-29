@@ -5,32 +5,21 @@
         </div>
         <div class="content">-
             <div class="text">
-               <p>我们以光影为墨，构图为框，在照片写真领域雕琢每一份独特。</p>
-               <p>无论是商业大片的张力、个人写真的灵动，还是活动瞬间的鲜活，都能精准捕捉。</p>
-               <p>用光线勾勒轮廓，用构图定格情绪，让每一张照片都成为时光里的永恒注脚，藏着未曾言说的心动与故事。​</p>
+                <p>&nbsp</p>
+                <p>&nbsp</p>
+
+                <p>有任何疑问？请拨打电话，或私信官方邮箱，我们随时为您解答。</p>
+                <p>电话：18630873550</p>
+                <p>邮箱：xiaoxuehua@163.com</p>
+                <P>地址：天津市红桥区双环屯街道碧春园1-1705</P>
             </div>
             <div class="video">
-                <div v-for="item in videoList" key="index">
-                    <video :ref="'videoRef'+index"  class="video" muted loop :src="item.path" controls></video>
-                </div>
+                <img src="/public/images/addUs.jpg" width="400" />
             </div>
         </div>
     </div>
-    <el-dialog ref="movie">
-
-    </el-dialog>
 </template>
 <script setup>
-import {ref, reactive } from 'vue';
-const videoList=reactive([
-    {
-        path:"/public/mp4/bigmall.mp4",
-        name:'演示视频一',
-    },{
-        path:"/public/mp4/testVideo.mp4",
-        name:'演示视频二',
-    },
-]);
 </script>
 <style lang="scss" scoped>
 @use "/public/css/comm.scss" as comm;
@@ -42,10 +31,11 @@ const videoList=reactive([
     background-image: url("/public/images/bg_jingangqiao.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    .mask{
+
+    .mask {
         width: 100vw;
         height: 100vh;
-        background:rgba(0,0,0,.7);
+        background: rgba(0, 0, 0, .7);
     }
 
 }
@@ -69,33 +59,36 @@ const videoList=reactive([
     }
 
     div:nth-child(2) {
-        flex: 3;
+        flex: 1;
     }
-    .text{
-        padding:20px 10px;
+
+    .text {
+        padding: 20px 10px;
         text-indent: 2em;
-        color:comm.$primary_color;
-        font-size:18px;
+        color: comm.$primary_color;
+        font-size: 18px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        line-height:30px;
+        line-height: 30px;
         font-weight: bolder;
 
     }
+
     .video {
         display: grid;
         gap: 10px;
         grid-template-columns: 1fr 1fr 1fr;
         grid-auto-rows: 150px;
         overflow: auto;
-        padding:50px 20px;
+        padding: 50px 20px;
         box-sizing: border-box;
         height: 80vh;
-        video{
-            width:100%;
-            height:150px;
+
+        video {
+            width: 100%;
+            height: 150px;
             box-sizing: border-box;
-            padding:0px;
-            margin:0px;
+            padding: 0px;
+            margin: 0px;
         }
     }
 }
